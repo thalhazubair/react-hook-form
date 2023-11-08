@@ -3,7 +3,6 @@ import { Box, Button, Input, Label, Select, Text } from "theme-ui";
 import { useForm, useFieldArray } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { produce } from "immer";
-import { type } from "os";
 
 type FormValues = {
   fields: {
@@ -13,7 +12,6 @@ type FormValues = {
 };
 
 export default function Add() {
-
   const [modal, setModal] = useState(false);
 
   const [showInputFields, setShowInputFields] = useState(false);
@@ -39,20 +37,18 @@ export default function Add() {
   });
 
   const onSubmit = (data: FormValues) => {
-    const newState = produce(fields, (draftState) => {
-      const APIdata = draftState.map((field) => ({
+    const newState = produce(data, (draftState) => {
+      const APIdata = draftState.fields.map((field) => ({
         name: field.name,
         type: field.type,
-        id: field.id
       }));
-      draftState = APIdata
-    });        
-    console.log("newState",newState);
-    
+      draftState.fields = APIdata;
+    });
+
     setFormData(data);
     setShowInputFields(false);
     setModal(false);
-  }
+  };
 
   return (
     <>
