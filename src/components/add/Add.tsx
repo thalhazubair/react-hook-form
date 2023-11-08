@@ -12,7 +12,8 @@ type FormValues = {
   }[];
 };
 
-export default function add() {
+export default function Add() {
+
   const [modal, setModal] = useState(false);
 
   const [showInputFields, setShowInputFields] = useState(false);
