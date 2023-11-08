@@ -51,21 +51,29 @@ export default function add() {
             bottom: 3,
             left: 3,
             right: 3,
+            borderRadius:"12px",          
+            zIndex:"999",
+            
           }}
           as="form"
           onSubmit={(e) => e.preventDefault()}
         >
           <Box
             sx={{
-              background: "orange",
-              paddingTop: "20px",
-              paddingBottom: "20px",
+              background: "#f0ecec",
+              paddingTop: "16px",
+              paddingBottom: "16px",
               paddingLeft: 3,
+              borderTopLeftRadius:"12px",
+              borderTopRightRadius:"12px",
+              borderBottomWidth:"1px",
+              borderColor:"#E4E9EF"
             }}
           >
             <Text
               sx={{
                 color: "black",
+                fontSize:"14px"
               }}
             >
               Manage fields
