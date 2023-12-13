@@ -38,11 +38,10 @@ export default function Add() {
 
   const onSubmit = (data: FormValues) => {
     const newState = produce(data, (draftState) => {
-      const APIdata = draftState.fields.map((field) => ({
+      draftState.fields.map((field) => ({
         name: field.name,
         type: field.type,
       }));
-      draftState.fields = APIdata;
     });
 
     setFormData(data);
